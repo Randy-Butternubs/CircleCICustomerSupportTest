@@ -12,8 +12,10 @@ jobs:
       - image: nginx
     # Add steps to the job
     # See: https://circleci.com/docs/2.0/configuration-reference/#steps
-    working_directory: /opt/website
+    #working_directory: /opt/website
     steps:
+      - checkout:
+          path: /opt/website
       - run:
          command: |
            sed -i 's+usr/share/nginx/html+opt/website+g' /etc/nginx/conf.d/default.conf
