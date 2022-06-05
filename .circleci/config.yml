@@ -16,7 +16,7 @@ jobs:
       - checkout
       - run: |
           name: "install nginx"
-          command: "apt update"
+          command: "apt update -y"
           command: "apt install nginx -y"
 
 # Invoke jobs via workflows
