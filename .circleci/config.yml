@@ -15,6 +15,7 @@ jobs:
     steps:
       - checkout
       - run:
+         name: 'Install web server'
          command: |
            apt update
            apt install nginx 
