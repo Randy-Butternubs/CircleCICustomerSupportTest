@@ -15,9 +15,10 @@ jobs:
     steps:
       - checkout 
       - run:
-         name: 'update web files'
-         command: |
-           cp index.html /usr/share/nginx/html/index.html
+          name: 'update web files'
+          command: |
+            cp index.html /usr/share/nginx/html/index.html
+  #test:
 
 
 # Invoke jobs via workflows
