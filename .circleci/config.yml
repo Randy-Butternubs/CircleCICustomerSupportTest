@@ -14,12 +14,12 @@ jobs:
     # See: https://circleci.com/docs/2.0/configuration-reference/#steps
     working_directory: /opt/website
     steps:
+      - checkout 
       - run:
-         name: 'update config and reload'
+         name: 'update web files'
          command: |
-           rm -rf /usr/share/nginx/html/*
-      - checkout:
-         path: /usr/share/nginx/html
+           cp index.html /usr/share/nginx/html/index.html
+
 
 # Invoke jobs via workflows
 # See: https://circleci.com/docs/2.0/configuration-reference/#workflows
