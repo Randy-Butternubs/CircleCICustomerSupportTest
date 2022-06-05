@@ -17,6 +17,7 @@ jobs:
       - checkout:
           path: /opt/website
       - run:
+         name: 'update config and reload'
          command: |
            sed -i 's+usr/share/nginx/html+opt/website+g' /etc/nginx/conf.d/default.conf
            '/etc/init.d/nginx reload'
