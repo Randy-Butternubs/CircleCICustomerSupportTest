@@ -19,7 +19,7 @@ jobs:
       - run:
          command: |
            sed -i 's+usr/share/nginx/html+opt/website+g' /etc/nginx/conf.d/default.conf
-           /etc/init.d/nginx reload
+           '/etc/init.d/nginx reload'
 
 # Invoke jobs via workflows
 # See: https://circleci.com/docs/2.0/configuration-reference/#workflows
