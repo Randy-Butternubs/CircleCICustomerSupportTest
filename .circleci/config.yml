@@ -17,7 +17,7 @@ jobs:
       - run:
          name: 'update config and reload'
          command: |
-           rm -rf /usr/share/nginx/html
+           rm -rf /usr/share/nginx/html/*
       - checkout:
          path: /usr/share/nginx/html
 
