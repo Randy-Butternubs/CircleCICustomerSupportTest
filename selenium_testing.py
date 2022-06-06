@@ -4,8 +4,13 @@ from selenium.webdriver.common.by import By
 
 def test_button():
 
-    driver = webdriver.Chrome()
-
+    chrome_options = webdriver.ChromeOptions()
+    chrome_options.set_capability("browserVersion", "103")
+    chrome_options.set_capability("platformName", "Windows 10")
+    driver = webdriver.Remote(
+        command_executor='http://localhost:4444',
+        options=chrome_options
+    )
     driver.get("http://localhost")
 
     text = driver.find_element(By.ID, value="text").text
