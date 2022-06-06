@@ -16,15 +16,11 @@ jobs:
       - checkout
       - run: mkdir test-report
       - run:
+          name: Install Python Dependencies
+          command: pip install webdriver-manager selenium
+      - run:
           name: Serve web content
-          command: python webserver.py > /dev/null 2>&1 &
-      - run:
-          name: Download Selenium
-          command: curl -O http://selenium-release.storage.googleapis.com/3.5/selenium-server-standalone-3.5.3.jar
-      - run:
-          name: Start Selenium
-          command: java -jar selenium-server-standalone-3.5.3.jar -log test-reports/selenium.log
-          background: true 
+          command: python webserver.py > /dev/null 2>&1 & 
       - run:
           command: python selenium_testing.py
       - store_artifacts:
