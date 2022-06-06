@@ -23,6 +23,14 @@ jobs:
           command: java -jar selenium-server-standalone-3.5.3.jar -log test-reports/selenium.log
           background: true 
       - run:
+          name: download chromedriver
+          command: | 
+            apt update -y
+            apt install unzip
+            curl -O https://chromedriver.storage.googleapis.com/103.0.5060.24/chromedriver_linux64.zip
+            unzip chromedriver_linux64.zip
+            ln -s chromedriver /usr/local/bin/chromedriver
+      - run:
           name: Install Python deps in a venv
           command: |
             python3 -m venv venv
