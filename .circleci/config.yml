@@ -14,17 +14,10 @@ jobs:
     # See: https://circleci.com/docs/2.0/configuration-reference/#steps
     steps:
       - checkout
-      - run: mkdir test-reports
+      - run: mkdir test-report
       - run:
-         name: Install web server
-         command: |
-           apt update
-           apt install nginx 
-      - run:
-          name: Update web files
-          command: |
-            cp index.html /usr/share/nginx/html/index.html
-            curl localhost
+          name: Serve web content
+          command: python webserver.py
       - run:
           name: Download Selenium
           command: curl -O http://selenium-release.storage.googleapis.com/3.5/selenium-server-standalone-3.5.3.jar
