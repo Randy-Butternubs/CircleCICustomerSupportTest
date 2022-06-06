@@ -3,7 +3,11 @@ from selenium.webdriver.common.by import By
 
 
 def test_button():
-    driver = webdriver.Chrome()
+    chrome_options = webdriver.ChromeOptions
+    driver = webdriver.Remote(
+        command_executor='localhost:4444',
+        options=chrome_options
+    )
 
     driver.get("http://localhost")
 
