@@ -16,9 +16,6 @@ jobs:
       - checkout
       - run: mkdir test-report
       - run:
-          name: Install Python Dependencies
-          command: pip install webdriver-manager selenium
-      - run:
           name: Serve web content
           command: python webserver.py > /dev/null 2>&1 &
       - run:
