@@ -29,7 +29,7 @@ jobs:
           command: java -jar selenium-server-standalone-3.5.3.jar -log test-reports/selenium.log
           background: true 
       - run:
-          command: python selenium.py
+          command: python selenium_testing.py
       - store_artifacts:
           path: test-reports/
           destination: tr1
