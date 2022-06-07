@@ -16,14 +16,6 @@ jobs:
     # Add steps to the job
     # See: https://circleci.com/docs/2.0/configuration-reference/#steps
     steps:
-      - browser-tools/install-browser-tools:
-          install-chrome: true 
-          install-chromedriver: true 
-          install-firefox: true 
-          install-geckodriver: true 
-          replace-existing-chrome: false 
-      - checkout
-      - run: mkdir test-reports
       - run:
           name: Install nginx
           command: |
@@ -33,6 +25,14 @@ jobs:
             rm -f /var/lib/dpkg/lock
             rm -f /var/lib/apt/lists/lock
             apt install nginx
+      - browser-tools/install-browser-tools:
+          install-chrome: true 
+          install-chromedriver: true 
+          install-firefox: true 
+          install-geckodriver: true 
+          replace-existing-chrome: false 
+      - checkout
+      - run: mkdir test-reports
       - run:
           name: Download Selenium
           command: curl -O http://selenium-release.storage.googleapis.com/3.5/selenium-server-standalone-3.5.3.jar
