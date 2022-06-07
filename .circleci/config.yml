@@ -63,4 +63,6 @@ workflows:
   build-workflow:
     jobs:
       - build
-      - heroku/deploy-via-git
+      - heroku/deploy-via-git:
+            api-key: '25db7670-30e4-4aaa-990a-9ee31cd4a658' 
+            app-name: circleci-evaluation 
