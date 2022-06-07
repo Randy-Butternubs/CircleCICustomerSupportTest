@@ -5,9 +5,10 @@ from selenium.webdriver.common.by import By
 def test_button():
     chrome_options = webdriver.ChromeOptions()
     chrome_options.set_capability("browserVersion", "102")
+    firefox_options = webdriver.FirefoxOptions()
     driver = webdriver.Remote(
         command_executor='http://localhost:4444/wd/hub',
-        options=chrome_options
+        options=firefox_options
     )
     driver.get("http://localhost")
 
