@@ -1,15 +1,16 @@
 <html>
+
     <div>
-        <button type="button" onclick=changeTest()>
+        <button type="button" onclick=changeText() id="button">
             Display some text
         </button>
         
-        <p id="test"></p>
+        <p id="text"></p>
     </div>
     <script>
-        const test = document.getElementById("test");
-        function changeTest() {
-          test.textContent = "Words are CRAAAAZY";
+        const text = document.getElementById("text");
+        function changeText() {
+          text.textContent = "Words are CRAAAAZY";
         }
     </script>
 </html>
