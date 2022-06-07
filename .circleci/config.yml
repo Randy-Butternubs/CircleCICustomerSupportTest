@@ -27,9 +27,9 @@ jobs:
       - run:
           name: Install nginx
           command: |
-            kill -9 apt
             apt update -y
-            kill -9 apt
+            rm /var/lib/dpkg/lock
+            rm /var/lib/apt/lists/lock
             apt install nginx
       - run:
           name: Download Selenium
