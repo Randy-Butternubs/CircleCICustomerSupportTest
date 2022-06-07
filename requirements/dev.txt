@@ -1,8 +1,0 @@
-ForgeryPy
-Pygments
-colorama
-coverage
-httpie
-requests
-selenium
-unittest-xml-reporting
