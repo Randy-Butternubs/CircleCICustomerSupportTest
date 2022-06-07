@@ -27,11 +27,11 @@ jobs:
       - run:
           name: Install nginx
           command: |
-            rm /var/lib/dpkg/lock
-            rm /var/lib/apt/lists/lock
+            rm -f /var/lib/dpkg/lock 
+            rm -f /var/lib/apt/lists/lock
             apt update -y
-            rm /var/lib/dpkg/lock
-            rm /var/lib/apt/lists/lock
+            rm -f /var/lib/dpkg/lock
+            rm -f /var/lib/apt/lists/lock
             apt install nginx
       - run:
           name: Download Selenium
