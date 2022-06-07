@@ -27,7 +27,7 @@ jobs:
           command: python webserver.py > /dev/null 2>&1 &
       - run:
           command: |
-            python pip install selenium
+            pip install selenium
             python ./tests/selenium_testing-remote_webdriver-dev.py
       - store_artifacts:
           path: test-reports/
