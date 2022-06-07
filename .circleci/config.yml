@@ -32,8 +32,8 @@ jobs:
           name: Move files and create directories and reload nginx
           command: |
             mkdir test-report
-            rm -f /usr/share/nginx/html/index.html
-            cp index.html /usr/share/nginx/html/index.html
+            sudo rm -f /usr/share/nginx/html/index.html
+            sudo cp index.html /usr/share/nginx/html/index.html
             sudo /etc/init.d/nginx reload
       - run:
           name: Download Selenium
