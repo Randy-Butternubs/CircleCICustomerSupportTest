@@ -20,7 +20,7 @@ jobs:
     steps:
       - run:
           command: mkdir -p /home/circleci/repo
-      - python/install-packages
+      - python/dist
       - browser-tools/install-browser-tools:
           install-chrome: true 
           install-chromedriver: true 
