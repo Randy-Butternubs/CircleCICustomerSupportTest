@@ -22,6 +22,11 @@ jobs:
           install-firefox: true 
           install-geckodriver: true 
           replace-existing-chrome: false
+      - run:
+          name: install dependencies
+          command: |
+            apt update -y
+            apt install openjdk-18-jre
       - checkout
       - run: mkdir test-reports
       - run:
