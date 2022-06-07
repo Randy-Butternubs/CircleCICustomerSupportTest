@@ -40,7 +40,7 @@ jobs:
       - run:
           command: |
             . venv/bin/activate
-            python selenium_testing.py
+            python ./tests/selenium_testing-remote_webdriver-dev.py
       - store_artifacts:
           path: test-reports/
           destination: tr1
