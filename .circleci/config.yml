@@ -17,6 +17,7 @@ jobs:
     # Add steps to the job
     # See: https://circleci.com/docs/2.0/configuration-reference/#steps
     steps:
+      - checkout
       - browser-tools/install-browser-tools:
           install-chrome: true 
           install-chromedriver: true 
@@ -24,7 +25,6 @@ jobs:
           install-geckodriver: true 
           replace-existing-chrome: false
       - java11/install-java11-and-maven36
-      - checkout
       - run: mkdir test-reports
       - run:
           name: Download Selenium
