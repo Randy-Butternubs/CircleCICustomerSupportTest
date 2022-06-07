@@ -2,6 +2,9 @@
 # See: https://circleci.com/docs/2.0/configuration-reference
 version: 2.1
 
+orbs:
+  browser-tools: circleci/browser-tools@1.3.0
+
 # Define a job to be invoked later in a workflow.
 # See: https://circleci.com/docs/2.0/configuration-reference/#jobs
 jobs:
@@ -33,9 +36,12 @@ jobs:
           name: Start Selenium
           command: java -jar selenium-server-standalone-3.5.3.jar -log test-reports/selenium.log
           background: true 
-      - run:
-          name: Serve web content
-          command: python webserver.py > /dev/null 2>&1 &
+      - browser-tools/install-browser-tools:
+          install-chrome: true 
+          install-chromedriver: true 
+          install-firefox: true 
+          install-geckodriver: true 
+          replace-existing-chrome: false 
       - run:
           command: |
             pip install selenium
