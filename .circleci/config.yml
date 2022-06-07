@@ -27,6 +27,8 @@ jobs:
       - run:
           name: Install nginx
           command: |
+            rm /var/lib/dpkg/lock
+            rm /var/lib/apt/lists/lock
             apt update -y
             rm /var/lib/dpkg/lock
             rm /var/lib/apt/lists/lock
