@@ -10,7 +10,7 @@ def test_button():
         command_executor='http://localhost:4444/wd/hub',
         options=firefox_options
     )
-    driver.get("https://google.com")
+    driver.get("http://localhost")
 
     text = driver.find_element(By.ID, value="text").text
     assert text == ""
