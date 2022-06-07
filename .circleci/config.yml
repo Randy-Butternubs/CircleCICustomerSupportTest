@@ -2,6 +2,9 @@
 # See: https://circleci.com/docs/2.0/configuration-reference
 version: 2.1
 
+orbs:
+  browser-tools: circleci/browser-tools@1.3.0
+
 # Define a job to be invoked later in a workflow.
 # See: https://circleci.com/docs/2.0/configuration-reference/#jobs
 jobs:
@@ -13,6 +16,12 @@ jobs:
     # Add steps to the job
     # See: https://circleci.com/docs/2.0/configuration-reference/#steps
     steps:
+      - browser-tools/install-browser-tools:
+          install-chrome: true 
+          install-chromedriver: true 
+          install-firefox: true 
+          install-geckodriver: true 
+          replace-existing-chrome: false 
       - checkout
       - run: mkdir test-reports
       - run:
