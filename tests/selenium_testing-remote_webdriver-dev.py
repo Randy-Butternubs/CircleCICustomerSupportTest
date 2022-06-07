@@ -7,7 +7,7 @@ def test_button():
     chrome_options.set_capability("browserVersion", "102")
     chrome_options.set_capability("platformName", "Windows 10")
     driver = webdriver.Remote(
-        command_executor='http://10.0.10.151:4444/wd/hub',
+        command_executor='http://localhost:4444/wd/hub',
         options=chrome_options
     )
     driver.get("https://google.com")
