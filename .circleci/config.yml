@@ -27,11 +27,15 @@ jobs:
           name: Move files and create directories and reload nginx
           command: |
             mkdir test-reports
-            sudo rm -f /usr/share/nginx/html/index.html
-            sudo cp index.html /usr/share/nginx/html/index.html
+            sudo cp index.html /var/www/html/index.html
             echo "Reloading web server"
             sudo /etc/init.d/nginx reload
-            
+      - browser-tools/install-browser-tools:
+          install-chrome: true 
+          install-chromedriver: true 
+          install-firefox: true 
+          install-geckodriver: true 
+          replace-existing-chrome: false       
       - run:
           name: Download Selenium
           command: curl -O http://selenium-release.storage.googleapis.com/3.5/selenium-server-standalone-3.5.3.jar
@@ -39,12 +43,6 @@ jobs:
           name: Start Selenium
           command: java -jar selenium-server-standalone-3.5.3.jar -log test-reports/selenium.log
           background: true 
-      - browser-tools/install-browser-tools:
-          install-chrome: true 
-          install-chromedriver: true 
-          install-firefox: true 
-          install-geckodriver: true 
-          replace-existing-chrome: false 
       - run:
           command: |
             pip install selenium
