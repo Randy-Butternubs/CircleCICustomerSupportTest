@@ -21,6 +21,7 @@ jobs:
           command: |
             sudo apt update -y
             sudo apt install nginx
+            sudo /etc/init.d/nginx start
       - checkout
       - run:
           name: Move files and create directories and reload nginx
@@ -28,7 +29,9 @@ jobs:
             mkdir test-reports
             sudo rm -f /usr/share/nginx/html/index.html
             sudo cp index.html /usr/share/nginx/html/index.html
-            sudo /etc/init.d/nginx start
+            echo "Reloading web server"
+            sudo /etc/init.d/nginx reload
+            
       - run:
           name: Download Selenium
           command: curl -O http://selenium-release.storage.googleapis.com/3.5/selenium-server-standalone-3.5.3.jar
